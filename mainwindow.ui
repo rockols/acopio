@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>496</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="Ofrecidos" name="ofrecidos"/>
+      <widget class="Compras" name="compras"/>
+      <widget class="Ventas" name="ventas"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>496</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <widget class="QMenu" name="menuCliente">
+     <property name="title">
+      <string>Cliente</string>
+     </property>
+     <addaction name="actionListado_clientes"/>
+     <addaction name="separator"/>
+     <addaction name="actionNuevoCliente"/>
+    </widget>
+    <widget class="QMenu" name="menuChofer">
+     <property name="title">
+      <string>Chofer</string>
+     </property>
+     <addaction name="actionListado_choferes"/>
+     <addaction name="separator"/>
+     <addaction name="actionNuevoChofer"/>
+    </widget>
+    <widget class="QMenu" name="menuGranos">
+     <property name="title">
+      <string>Grano</string>
+     </property>
+     <addaction name="actionNuevo_tipo_de_grano"/>
+     <addaction name="separator"/>
+     <addaction name="actionNuevo_grano"/>
+    </widget>
+    <addaction name="menuCliente"/>
+    <addaction name="menuChofer"/>
+    <addaction name="menuGranos"/>
+   </widget>
+   <widget class="QMenu" name="menuVer">
+    <property name="title">
+     <string>Ver</string>
+    </property>
+    <addaction name="actionOfrecidos"/>
+    <addaction name="actionCompras"/>
+    <addaction name="actionVentas"/>
+   </widget>
+   <widget class="QMenu" name="menuAnticipos">
+    <property name="title">
+     <string>Anticipos</string>
+    </property>
+    <widget class="QMenu" name="menuVer_2">
+     <property name="title">
+      <string>Ver</string>
+     </property>
+     <addaction name="actionCalzados"/>
+     <addaction name="actionNo_calzados"/>
+     <addaction name="actionTodos"/>
+    </widget>
+    <addaction name="menuVer_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionNuevo_Anticipo"/>
+   </widget>
+   <addaction name="menuVer"/>
+   <addaction name="menuEditar"/>
+   <addaction name="menuAnticipos"/>
+  </widget>
+  <action name="actionAnticipos">
+   <property name="text">
+    <string>Anticipos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionListado_clientes">
+   <property name="text">
+    <string>Listado de clientes</string>
+   </property>
+  </action>
+  <action name="actionNuevoCliente">
+   <property name="text">
+    <string>Añadir nuevo</string>
+   </property>
+  </action>
+  <action name="actionModificarCliente">
+   <property name="text">
+    <string>Modificar existente</string>
+   </property>
+  </action>
+  <action name="actionOfrecidos">
+   <property name="text">
+    <string>Ofrecidos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCompras">
+   <property name="text">
+    <string>Compras</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionVentas">
+   <property name="text">
+    <string>Ventas</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionListado_choferes">
+   <property name="text">
+    <string>Listado de choferes</string>
+   </property>
+  </action>
+  <action name="actionNuevoChofer">
+   <property name="text">
+    <string>Añadir nuevo</string>
+   </property>
+  </action>
+  <action name="actionModificarChoferExistente">
+   <property name="text">
+    <string>Modificar existente</string>
+   </property>
+  </action>
+  <action name="actionNuevo_grano">
+   <property name="text">
+    <string>Añadir nuevo grano</string>
+   </property>
+  </action>
+  <action name="actionCalzados">
+   <property name="text">
+    <string>Calzados</string>
+   </property>
+  </action>
+  <action name="actionNo_calzados">
+   <property name="text">
+    <string>No calzados</string>
+   </property>
+  </action>
+  <action name="actionNuevo_Anticipo">
+   <property name="text">
+    <string>Nuevo Anticipo</string>
+   </property>
+  </action>
+  <action name="actionTodos">
+   <property name="text">
+    <string>Todos</string>
+   </property>
+  </action>
+  <action name="actionNuevo_tipo_de_grano">
+   <property name="text">
+    <string>Listado de granos</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Ofrecidos</class>
+   <extends>QWidget</extends>
+   <header>ofrecidos.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Compras</class>
+   <extends>QWidget</extends>
+   <header>compras.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Ventas</class>
+   <extends>QWidget</extends>
+   <header>ventas.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

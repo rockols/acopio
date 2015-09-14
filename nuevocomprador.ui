@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NuevoComprador</class>
+ <widget class="QDialog" name="NuevoComprador">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>260</width>
+    <height>343</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>44</y>
+     <width>69</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Apellido: </string>
+   </property>
+   <property name="buddy">
+    <cstring>apellido</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>184</y>
+     <width>71</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Provincia:</string>
+   </property>
+   <property name="buddy">
+    <cstring>provincia</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="nombre">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>9</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>79</y>
+     <width>37</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>CUIT:</string>
+   </property>
+   <property name="buddy">
+    <cstring>cuit0</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="apellido">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>44</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="provincia">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>184</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="telefono">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>219</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>67</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre: </string>
+   </property>
+   <property name="buddy">
+    <cstring>nombre</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>149</y>
+     <width>73</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Localidad:</string>
+   </property>
+   <property name="buddy">
+    <cstring>localidad</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>219</y>
+     <width>69</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Teléfono:</string>
+   </property>
+   <property name="buddy">
+    <cstring>telefono</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cuit0">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>79</y>
+     <width>25</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>25</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="localidad">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>149</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="direccion">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>114</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="mail">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>254</y>
+     <width>150</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cuit1">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>79</y>
+     <width>25</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>25</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>114</y>
+     <width>73</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Dirección:</string>
+   </property>
+   <property name="buddy">
+    <cstring>direccion</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>254</y>
+     <width>35</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Mail:</string>
+   </property>
+   <property name="buddy">
+    <cstring>mail</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cuit">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>79</y>
+     <width>90</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>90</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptar">
+   <property name="geometry">
+    <rect>
+     <x>69</x>
+     <y>300</y>
+     <width>85</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Aceptar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelar">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>300</y>
+     <width>89</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Cancelar</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

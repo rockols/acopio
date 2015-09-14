@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Ofrecidos</class>
+ <widget class="QWidget" name="Ofrecidos">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>769</width>
+    <height>323</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="concretarOfrecido">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>85</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>85</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Concretar</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="modificarOfrecido">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>0</y>
+        <width>85</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>85</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Modificar</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="eliminarOfrecido">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>0</y>
+        <width>85</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>85</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Eliminar</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nuevoOfrecido">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>0</y>
+        <width>85</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>85</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Añadir Ofrecido</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QTableView" name="ofrecidosList">
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;OFRECIDOS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
