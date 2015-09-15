@@ -8,7 +8,7 @@
 #include <QDebug>
 #include <QSqlQuery>
 
-CompraVenta::CompraVenta(int id_compra, QString grano, QWidget *parent) :
+CompraVenta::CompraVenta(int id_compra, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CompraVenta)
 {
@@ -20,7 +20,7 @@ CompraVenta::CompraVenta(int id_compra, QString grano, QWidget *parent) :
 
     idCompra = id_compra;
 
-    showVentas(grano);
+    showVentas();
 
 }
 
@@ -29,26 +29,38 @@ CompraVenta::~CompraVenta()
     delete ui;
 }
 
-void CompraVenta::showVentas(QString grano){
+void CompraVenta::showVentas(){
 
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel(0, QSqlDatabase::database());
 
-    QSqlQueryModel cereal;
-    cereal.setQuery("SELECT id FROM cereales WHERE cereal='"+grano+"'");
-    QString tipoCereal = cereal.data(cereal.index(0,0)).toString();
+    QSqlQueryModel compra;
+    QString query = "SELECT * FROM compras WHERE _id=";
+    query.append(QString::number(idCompra));
+    compra.setQuery(query);
+
+    QString tipoCereal = compra.data(compra.index(0,7)).toString();
+    QString tipoNegocio = compra.data(compra.index(0,6)).toString();
+    QString moneda = compra.data(compra.index(0,10)).toString();
+
+    QString filtroCereal = "ventas.tipocereal = " + tipoCereal;
+    QString filtroNegocio = "ventas.tiponegocio = " + tipoNegocio;
+    QString filtroMoneda = "ventas.moneda = " + moneda;
+
+    qDebug() << filtroCereal;
+    qDebug() << filtroMoneda;
+    qDebug() << filtroNegocio;
+    model->setFilter("kilos > kiloscalzados");
+    model->setFilter(filtroCereal);
+    model->setFilter(filtroMoneda);
+    model->setFilter(filtroNegocio);
 
     model->setTable("ventas");
-    // CAMBIAR TABLA A COMPRADOR PARA QUE QUEDE DIFERENCIADO COMPRADOR DE CLIENTE
     model->setRelation(7, QSqlRelation("comprador", "cuit", "nombre"));
     model->setRelation(11, QSqlRelation("cereales", "id", "cereal"));
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
-    model->setFilter("kilos > kiloscalzados");
-    QString filtroGrano = "tipocereal = " + tipoCereal;
-
-    model->setFilter(filtroGrano);
     model->select();
-
+    qDebug() << model->filter();
 
     ui->ventasList->setModel(model);
     ui->ventasList->setItemDelegate(new QSqlRelationalDelegate(ui->ventasList));

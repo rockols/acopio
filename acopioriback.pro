@@ -24,8 +24,7 @@ SOURCES += main.cpp\
     compraventa.cpp \
     detallecompraventa.cpp \
     agregarventa.cpp \
-    nuevocomprador.cpp \
-    mainwindow2.cpp
+    nuevocomprador.cpp
 
 HEADERS  += mainwindow.h \
     ofrecidos.h \
@@ -39,8 +38,7 @@ HEADERS  += mainwindow.h \
     compraventa.h \
     detallecompraventa.h \
     agregarventa.h \
-    nuevocomprador.h \
-    mainwindow2.h
+    nuevocomprador.h
 
 FORMS    += mainwindow.ui \
     ofrecidos.ui \
@@ -53,7 +51,6 @@ FORMS    += mainwindow.ui \
     compraventa.ui \
     detallecompraventa.ui \
     agregarventa.ui \
-    nuevocomprador.ui \
-    mainwindow2.ui
+    nuevocomprador.ui
 
 DISTFILES +=

@@ -161,7 +161,7 @@ int ConcretarOfrecido::updateCompra()
             case 1:
             {
 
-                CompraVenta *cv = new CompraVenta(ui->id->text().toInt(),ui->grano->currentText());
+                CompraVenta *cv = new CompraVenta(ui->id->text().toInt());
                 cv->exec();
                 this->accept();
                 break;
@@ -269,7 +269,7 @@ int ConcretarOfrecido::insertCompra()
                 break;
             case 1:
             {
-                CompraVenta *cv = new CompraVenta(ui->id->text().toInt(), ui->grano->currentText());
+                CompraVenta *cv = new CompraVenta(ui->id->text().toInt());
                 cv->exec();
                 this->accept();
                 break;

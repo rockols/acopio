@@ -12,7 +12,7 @@ class CompraVenta : public QDialog
     Q_OBJECT
 
 public:
-    explicit CompraVenta(int id_compra, QString grano, QWidget *parent = 0);
+    explicit CompraVenta(int id_compra, QWidget *parent = 0);
     ~CompraVenta();
 
 private slots:
@@ -26,7 +26,7 @@ private slots:
 
 private:
     Ui::CompraVenta *ui;
-    void showVentas(QString grano);
+    void showVentas();
     void vincularCompraVenta();
     int idCompra;
 };

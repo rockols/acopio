@@ -151,10 +151,9 @@ void Compras::vincCompra()
 
     //PASAR TIPO DE GRANO & ID DE LA VENTA
     int rowIndex =  ui->comprasList->currentIndex().row();
-    QString grano = ui->comprasList->currentIndex().sibling(rowIndex,7).data().toString();
     int idCompra = ui->comprasList->currentIndex().sibling(rowIndex,0).data().toInt();
 
-    CompraVenta *cv = new CompraVenta(idCompra, grano);
+    CompraVenta *cv = new CompraVenta(idCompra);
     cv->exec();
 }
 
