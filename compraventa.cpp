@@ -34,33 +34,39 @@ void CompraVenta::showVentas(){
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel(0, QSqlDatabase::database());
 
     QSqlQueryModel compra;
+    QString where;
+    QString filtroCereal;
+    QString filtroNegocio;
+    QString filtroMoneda;
+    QString tipoCereal;
+    QString tipoNegocio;
+    QString moneda;
+
     QString query = "SELECT * FROM compras WHERE _id=";
     query.append(QString::number(idCompra));
     compra.setQuery(query);
 
-    QString tipoCereal = compra.data(compra.index(0,7)).toString();
-    QString tipoNegocio = compra.data(compra.index(0,6)).toString();
-    QString moneda = compra.data(compra.index(0,10)).toString();
+    tipoCereal = compra.data(compra.index(0,7)).toString();
+    tipoNegocio = compra.data(compra.index(0,6)).toString();
+    moneda = compra.data(compra.index(0,10)).toString();
 
-    QString filtroCereal = "ventas.tipocereal = " + tipoCereal;
-    QString filtroNegocio = "ventas.tiponegocio = " + tipoNegocio;
-    QString filtroMoneda = "ventas.moneda = " + moneda;
 
-    qDebug() << filtroCereal;
-    qDebug() << filtroMoneda;
-    qDebug() << filtroNegocio;
-    model->setFilter("kilos > kiloscalzados");
-    model->setFilter(filtroCereal);
-    model->setFilter(filtroMoneda);
-    model->setFilter(filtroNegocio);
+    filtroCereal = "tipocereal = " + tipoCereal;
+    filtroNegocio = "tiponegocio = " + tipoNegocio;
+    filtroMoneda = "moneda = " + moneda;
+
+    //where = filtroCereal + " AND " + filtroNegocio + " AND " + filtroMoneda + " AND kilos > kiloscalzados";
+    where = "kilos > kiloscalzados";
 
     model->setTable("ventas");
     model->setRelation(7, QSqlRelation("comprador", "cuit", "nombre"));
     model->setRelation(11, QSqlRelation("cereales", "id", "cereal"));
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
-    model->select();
+    model->setFilter(where);
     qDebug() << model->filter();
+
+    model->select();
 
     ui->ventasList->setModel(model);
     ui->ventasList->setItemDelegate(new QSqlRelationalDelegate(ui->ventasList));
