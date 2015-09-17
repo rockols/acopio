@@ -53,10 +53,9 @@ void CompraVenta::showVentas(){
 
     filtroCereal = "tipocereal = " + tipoCereal;
     filtroNegocio = "tiponegocio = " + tipoNegocio;
-    filtroMoneda = "moneda = " + moneda;
+    filtroMoneda = "moneda = '" + moneda + "'";
 
-    //where = filtroCereal + " AND " + filtroNegocio + " AND " + filtroMoneda + " AND kilos > kiloscalzados";
-    where = "kilos > kiloscalzados";
+    where = filtroCereal + " AND " + filtroNegocio + " AND " + filtroMoneda + "AND kilos > kiloscalzados";
 
     model->setTable("ventas");
     model->setRelation(7, QSqlRelation("comprador", "cuit", "nombre"));
@@ -64,6 +63,7 @@ void CompraVenta::showVentas(){
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     model->setFilter(where);
+    qDebug() << moneda;
     qDebug() << model->filter();
 
     model->select();
