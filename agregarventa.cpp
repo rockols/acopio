@@ -13,7 +13,8 @@ AgregarVenta::AgregarVenta(QWidget *parent) :
     ui(new Ui::AgregarVenta)
 {
     ui->setupUi(this);
-
+    this->setWindowTitle("Nueva Venta");
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     ui->fecha_venta->setDate(QDate::currentDate());
     ui->fecha_cobro->setDate(QDate::currentDate());
     ui->fecha_venta->setDate(QDate::currentDate());

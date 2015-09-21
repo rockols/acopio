@@ -196,7 +196,6 @@ int ConcretarOfrecido::validarCompra()
 }
 
 int ConcretarOfrecido::nuevaCompra(){
-    this->setWindowTitle("Nueva Compra");
 
     ui->observaciones->setEnabled(true);
     ui->kilos->setEnabled(true);
