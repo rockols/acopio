@@ -6,6 +6,7 @@
 #include "agregarcliente.h"
 #include "ofrecidos.h"
 #include <QDebug>
+#include "helper.h"
 
 AgregarOfrecido::AgregarOfrecido(QWidget *parent) :
     QDialog(parent),
@@ -23,8 +24,8 @@ AgregarOfrecido::AgregarOfrecido(QWidget *parent) :
     ui->pushButton_8->hide();
     ui->id->hide();
     ui->grano->setMinimumHeight(25);
-    populateCerealField();
-    populateClienteField();
+    Helper::populateClienteField(ui->cliente);
+    Helper::populateCerealField(ui->grano);
 
 }
 
@@ -84,24 +85,7 @@ int AgregarOfrecido::validarOfrecido()
     return ret;
 }
 
-void AgregarOfrecido::populateCerealField(){
-    QSqlQueryModel cereal;
-    cereal.setQuery("SELECT cereal,id FROM cereales");
-    for(int i=0; i < cereal.rowCount(); i++)
-    {
-        ui->grano->addItem( cereal.data(cereal.index(i,0)).toString(), QVariant( cereal.data(cereal.index(i,1)).toInt()));
-    }
-}
 
-void AgregarOfrecido::populateClienteField(){
-    QSqlQueryModel cliente;
-    cliente.setQuery ("SELECT nombre,cuit FROM cliente ORDER BY nombre");
-
-    for(int i=0; i < cliente.rowCount(); i++)
-    {
-        ui->cliente->addItem( cliente.data(cliente.index(i,0)).toString(), QVariant( cliente.data(cliente.index(i,1)).toDouble()));
-    }
-}
 
 void AgregarOfrecido::on_pushButton_3_clicked()
 {
@@ -110,7 +94,7 @@ void AgregarOfrecido::on_pushButton_3_clicked()
     if(ret == 0)
     {
         ui->cliente->clear();
-        populateClienteField();
+        Helper::populateClienteField(ui->cliente);
     }
 }
 

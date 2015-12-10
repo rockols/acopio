@@ -68,8 +68,7 @@ void Ventas::showVentas(){
         ui->ventasList->horizontalHeader()->setSectionResizeMode(
             c, QHeaderView::ResizeToContents);
     }
-    //ui->ofrecidosList->horizontalHeader()->setSectionResizeMode(
-    //ui->ofrecidosList->horizontalHeader()->count() - 2, QHeaderView::Stretch);
+
 }
 
 void Ventas::agregarVenta(){

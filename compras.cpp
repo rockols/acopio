@@ -20,6 +20,7 @@ Compras::Compras(QWidget *parent) :
     ui->comprasList->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     showCompras();
+
 }
 
 void Compras::showCompras()
@@ -29,7 +30,7 @@ void Compras::showCompras()
     model->setTable("compras");
     model->setRelation(7, QSqlRelation("cereales", "id", "cereal"));
     model->setRelation(15, QSqlRelation("cliente", "cuit", "nombre"));
-    model->setRelation(16, QSqlRelation("localizacion", "_id", "lugar"));
+    model->setRelation(16, QSqlRelation("localizacion", "id", "lugar"));
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Fecha Ingreso"));
@@ -64,6 +65,7 @@ void Compras::showCompras()
     ui->comprasList->setColumnHidden(8,true);
     ui->comprasList->setColumnHidden(11,true);
     ui->comprasList->setColumnHidden(18,true);
+    ui->comprasList->setColumnHidden(19,true);
 
     for (int c = 0; c < ui->comprasList->horizontalHeader()->count() -2; ++c)
     {
@@ -89,6 +91,7 @@ void Compras::enableButtons()
     ui->eliminarCompra->setEnabled(true);
     ui->modificarCompra->setEnabled(true);
     ui->vincularCompra->setEnabled(true);
+    ui->anadir_carga->setEnabled(true);
 }
 
 void Compras::disableButtons()
@@ -96,6 +99,7 @@ void Compras::disableButtons()
     ui->eliminarCompra->setEnabled(false);
     ui->modificarCompra->setEnabled(false);
     ui->vincularCompra->setEnabled(false);
+    ui->anadir_carga->setEnabled(false);
 }
 
 void Compras::deleteCompra()
@@ -185,4 +189,10 @@ void Compras::on_vincularCompra_clicked()
 void Compras::on_comprasList_doubleClicked()
 {
     vincCompra();
+}
+
+void Compras::on_pushButton_clicked()
+{
+    showCompras();
+    disableButtons();
 }

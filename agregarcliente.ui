@@ -7,22 +7,21 @@
     <x>0</x>
     <y>0</y>
     <width>285</width>
-    <height>343</height>
+    <height>295</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="9" column="1" colspan="4">
-    <widget class="QLabel" name="label_10">
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;(ej: campo1,campo2,etc)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <item row="2" column="3">
+    <widget class="QLineEdit" name="cuit1">
+     <property name="maximumSize">
+      <size>
+       <width>25</width>
+       <height>16777215</height>
+      </size>
      </property>
-    </widget>
-   </item>
-   <item row="8" column="1" colspan="4">
-    <widget class="QLineEdit" name="campos">
      <property name="styleSheet">
       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
@@ -31,15 +30,65 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0">
-    <widget class="QLabel" name="label_9">
+   <item row="8" column="2" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="aceptar">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Aceptar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelar">
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="1" colspan="4">
+    <widget class="QLineEdit" name="localidad">
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_6">
      <property name="font">
       <font>
        <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Campos:</string>
+      <string>Provincia:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1" colspan="4">
+    <widget class="QLineEdit" name="mail">
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
    </item>
@@ -205,19 +254,6 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="1" colspan="4">
-    <widget class="QLineEdit" name="telefono">
-     <property name="maximumSize">
-      <size>
-       <width>150</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-    </widget>
-   </item>
    <item row="7" column="0">
     <widget class="QLabel" name="label_8">
      <property name="font">
@@ -230,8 +266,8 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="1" colspan="4">
-    <widget class="QLineEdit" name="mail">
+   <item row="6" column="1" colspan="4">
+    <widget class="QLineEdit" name="telefono">
      <property name="maximumSize">
       <size>
        <width>150</width>
@@ -240,71 +276,6 @@
      </property>
      <property name="styleSheet">
       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label_6">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Provincia:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1" colspan="4">
-    <widget class="QLineEdit" name="localidad">
-     <property name="maximumSize">
-      <size>
-       <width>150</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="2" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="aceptar">
-       <property name="styleSheet">
-        <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Aceptar</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="cancelar">
-       <property name="styleSheet">
-        <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Cancelar</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="3">
-    <widget class="QLineEdit" name="cuit1">
-     <property name="maximumSize">
-      <size>
-       <width>25</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string/>
      </property>
     </widget>
    </item>
@@ -321,7 +292,6 @@
   <tabstop>provincia</tabstop>
   <tabstop>telefono</tabstop>
   <tabstop>mail</tabstop>
-  <tabstop>campos</tabstop>
   <tabstop>aceptar</tabstop>
   <tabstop>cancelar</tabstop>
  </tabstops>

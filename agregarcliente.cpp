@@ -36,7 +36,7 @@ void AgregarCliente::on_aceptar_clicked()
         QString localidad = ui->localidad->text();
         QString provincia = ui->provincia->text();
         QString telefono = ui->telefono->text();
-        QString campos = ui->campos->text();
+        //QString campos = ui->campos->text();
 
         QSqlQuery query;
         query.prepare("insert into cliente (cuit, nombre, direccion, localidad, telefono ,mail ,provincia) "
@@ -54,7 +54,7 @@ void AgregarCliente::on_aceptar_clicked()
                                                          "CUIT ingresado no exista en la base de datos");
             return;
         }
-        else if(campos.size()>0)
+        /*else if(campos.size()>0)
         {
             query.clear();
             QStringList c = campos.split(',');
@@ -69,7 +69,7 @@ void AgregarCliente::on_aceptar_clicked()
                     return;
                 }
             }
-        }
+        }*/
 
     QMessageBox msgBox;
     msgBox.setText("La operación se ha realizado con éxito");

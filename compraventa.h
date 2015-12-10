@@ -20,9 +20,11 @@ private slots:
 
     void on_ventasList_doubleClicked();
 
-    void on_ventasList_clicked(const QModelIndex &index);
+    void on_ventasList_clicked();
 
     void on_nueva_venta_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::CompraVenta *ui;

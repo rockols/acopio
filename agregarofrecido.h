@@ -28,8 +28,6 @@ private slots:
 private:
     Ui::AgregarOfrecido *ui;
     QSqlDatabase db;
-    void populateCerealField();
-    void populateClienteField();
     int validarOfrecido();
 };
 

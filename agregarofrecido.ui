@@ -313,6 +313,19 @@
       <number>3</number>
      </property>
      <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>80</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>Aceptar</string>
@@ -340,13 +353,18 @@
  <tabstops>
   <tabstop>cliente</tabstop>
   <tabstop>pushButton_3</tabstop>
+  <tabstop>prioridad</tabstop>
   <tabstop>grano</tabstop>
+  <tabstop>kilos</tabstop>
+  <tabstop>precio_base</tabstop>
   <tabstop>moneda</tabstop>
   <tabstop>fecha_venta</tabstop>
   <tabstop>tipo_negocio</tabstop>
   <tabstop>observaciones</tabstop>
   <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_8</tabstop>
   <tabstop>pushButton_2</tabstop>
+  <tabstop>id</tabstop>
  </tabstops>
  <resources/>
  <connections>

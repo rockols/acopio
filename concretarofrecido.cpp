@@ -7,16 +7,18 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlError>
-
+#include "helper.h"
 
 ConcretarOfrecido::ConcretarOfrecido(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ConcretarOfrecido)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 
-    populateCerealField();
-    populateClienteField();
+    Helper::populateCerealField(ui->grano);
+    Helper::populateClienteField(ui->cliente);
+
 
     ui->kilos_concretados->setValidator(new QIntValidator(0, 100000, this));
     ui->precio_concretado->setValidator(new QIntValidator(0, 100000, this));
@@ -30,6 +32,13 @@ ConcretarOfrecido::ConcretarOfrecido(QWidget *parent) :
 
 int ConcretarOfrecido::concretar(int id){
     this->setWindowTitle("Concretar Compra");
+    ui->cliente->setEnabled(false);
+    ui->grano->setEnabled(false);
+    ui->kilos->setEnabled(false);
+    ui->tipo_negocio->setEnabled(false);
+    ui->precio_base->setEnabled(false);
+    ui->fecha_venta->setEnabled(false);
+    ui->moneda->setEnabled(false);
 
     QSqlQuery query;
     query.prepare("SELECT * FROM compras WHERE _id = :id");
@@ -54,7 +63,7 @@ int ConcretarOfrecido::concretar(int id){
     else
         ui->moneda->setCurrentIndex(1);
 
-    populateLocalizacionField();
+    Helper::populateLocalizacionField(ui->localizacion);
 
     return (this->exec());
 }
@@ -62,14 +71,7 @@ int ConcretarOfrecido::concretar(int id){
 int ConcretarOfrecido::modificar(int id)
 {
     this->setWindowTitle("Modificar Compra");
-    ui->observaciones->setEnabled(true);
-    ui->kilos->setEnabled(true);
-    ui->tipo_negocio->setEnabled(true);
-    ui->precio_base->setEnabled(true);
-    ui->fecha_venta->setEnabled(true);
-    ui->cliente->setEnabled(true);
-    ui->grano->setEnabled(true);
-    ui->moneda->setEnabled(true);
+
     ui->pushButton_3->show();
     ui->pushButton_4->hide();
     ui->pushButton->show();
@@ -102,7 +104,7 @@ int ConcretarOfrecido::modificar(int id)
     int indexGrano = ui->grano->findData(query.value(7));
     ui->grano->setCurrentIndex(indexGrano);
 
-    populateLocalizacionField();
+    Helper::populateLocalizacionField(ui->localizacion);
     int indexLocalizacion = ui->localizacion->findData(query.value(16));
     ui->localizacion->setCurrentIndex(indexLocalizacion);
 
@@ -197,14 +199,6 @@ int ConcretarOfrecido::validarCompra()
 
 int ConcretarOfrecido::nuevaCompra(){
 
-    ui->observaciones->setEnabled(true);
-    ui->kilos->setEnabled(true);
-    ui->tipo_negocio->setEnabled(true);
-    ui->precio_base->setEnabled(true);
-    ui->fecha_venta->setEnabled(true);
-    ui->cliente->setEnabled(true);
-    ui->grano->setEnabled(true);
-    ui->moneda->setEnabled(true);
     ui->pushButton_3->show();
     ui->pushButton_4->show();
     ui->pushButton->hide();
@@ -216,9 +210,26 @@ int ConcretarOfrecido::nuevaCompra(){
     ui->label_4->hide();
 
 
-    populateLocalizacionField();
+    Helper::populateLocalizacionField(ui->localizacion);
 
-    return (this->exec());
+    return this->exec();
+}
+
+int ConcretarOfrecido::nuevaCompra(qlonglong cliente, int grano)
+{
+    ui->cliente->setEnabled(false);
+    ui->grano->setEnabled(false);
+    ui->pushButton_3->hide();
+
+    int indexCliente = ui->cliente->findData(cliente);
+    ui->cliente->setCurrentIndex(indexCliente);
+
+    int indexGrano = ui->grano->findData(grano);
+    ui->grano->setCurrentIndex(indexGrano);
+
+    return nuevaCompra();
+
+
 }
 
 int ConcretarOfrecido::insertCompra()
@@ -227,9 +238,9 @@ int ConcretarOfrecido::insertCompra()
     {
         QSqlQuery query;
         query.prepare("insert into compras (fechaingreso, tipocereal , tiponegocio , concretado ,cliente ,observaciones, moneda, "
-                      "kilosconcretados, precioconcretado, fechaconcretado, fechapago, localizacion) "
+                      "kilosconcretados, precioconcretado, precio, fechaconcretado, fechacompra, fechapago, localizacion) "
                                  "values(:fechaingreso,:tipocereal, :tiponegocio, :concretado, :cliente, :observaciones, :moneda,"
-                      ":kilosconcretados,:precioconcretado, :fechaconcretado, :fechapago, :localizacion)");
+                      ":kilosconcretados,:precioconcretado, :precio, :fechaconcretado, :fechacompra, :fechapago, :localizacion)");
 
         query.bindValue(":fechaingreso", QDate::currentDate());
         query.bindValue(":tipocereal", ui->grano->itemData(ui->grano->currentIndex()).toInt());
@@ -240,13 +251,15 @@ int ConcretarOfrecido::insertCompra()
         query.bindValue(":observaciones", ui->observaciones->toPlainText());
         query.bindValue(":kilosconcretados", ui->kilos_concretados->text().toDouble());
         query.bindValue(":precioconcretado", ui->precio_concretado->text().toDouble());
+        query.bindValue(":precio", ui->precio_concretado->text().toDouble());
         query.bindValue(":fechaconcretado", ui->fecha_conc_compra->date());
+        query.bindValue(":fechacompra", ui->fecha_conc_compra->date());
         query.bindValue(":fechapago", ui->fecha_pago->date());
         query.bindValue(":localizacion", ui->localizacion->itemData(ui->localizacion->currentIndex()).toInt());
         query.bindValue(":concretado", 1);
 
         int ret = query.exec();
-
+        qDebug() << query.lastError();
         if(!ret)
             QMessageBox::warning(0, QObject::tr("Advertencia"),"Ha ocurrido un error, por favor inténtelo nuevamente");
         else
@@ -268,7 +281,7 @@ int ConcretarOfrecido::insertCompra()
                 break;
             case 1:
             {
-                CompraVenta *cv = new CompraVenta(ui->id->text().toInt());
+                CompraVenta *cv = new CompraVenta(query.lastInsertId().toInt());
                 cv->exec();
                 this->accept();
                 break;
@@ -290,51 +303,8 @@ void ConcretarOfrecido::nuevoCliente()
     if(ret == 0)
     {
         ui->cliente->clear();
-        populateClienteField();
+        Helper::populateClienteField(ui->cliente);
     }
-}
-
-void ConcretarOfrecido::populateCerealField()
-{
-    QSqlQueryModel cereal;
-    cereal.setQuery("SELECT cereal,id FROM cereales");
-    for(int i=0; i < cereal.rowCount(); i++)
-    {
-        ui->grano->addItem( cereal.data(cereal.index(i,0)).toString(), QVariant( cereal.data(cereal.index(i,1)).toInt()));
-    }
-}
-
-void ConcretarOfrecido::populateClienteField()
-{
-    QSqlQueryModel cliente;
-    cliente.setQuery ("SELECT nombre,cuit FROM cliente ORDER BY nombre");
-
-    for(int i=0; i < cliente.rowCount(); i++)
-    {
-        ui->cliente->addItem( cliente.data(cliente.index(i,0)).toString(), QVariant( cliente.data(cliente.index(i,1)).toDouble()));
-    }
-}
-
-void ConcretarOfrecido::populateLocalizacionField()
-{
-    ui->localizacion->clear();
-    QSqlQuery query;
-    query.prepare("SELECT _id, lugar FROM localizacion WHERE _id = 1 OR cliente = :cliente");
-    query.bindValue(":cliente",ui->cliente->itemData(ui->cliente->currentIndex()).toLongLong());
-    query.exec();
-
-    QSqlQueryModel campos;
-    campos.setQuery(query);
-
-    for(int i=0; i < campos.rowCount(); i++)
-    {
-        ui->localizacion->addItem( campos.data(campos.index(i,1)).toString(), campos.data(campos.index(i,0)).toInt());
-    }
-}
-
-void ConcretarOfrecido::on_cliente_currentIndexChanged()
-{
-    populateLocalizacionField();
 }
 
 void ConcretarOfrecido::on_pushButton_3_clicked()

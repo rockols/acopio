@@ -22,6 +22,8 @@ private slots:
     void on_vincularCompra_clicked();
     void on_comprasList_doubleClicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Compras *ui;
     void showCompras();

@@ -59,6 +59,7 @@ void Ofrecidos::showOfrecidos(){
     ui->ofrecidosList->setColumnHidden(14,true);
     ui->ofrecidosList->setColumnHidden(16,true);
     ui->ofrecidosList->setColumnHidden(18,true);
+    ui->ofrecidosList->setColumnHidden(19,true);
 
     for (int c = 0; c < ui->ofrecidosList->horizontalHeader()->count() -2; ++c)
     {

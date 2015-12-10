@@ -22,6 +22,11 @@ private slots:
     void showVentas();
     void nuevoCliente();
     void listadoClientes();
+    void nuevaCarga();
+    void listadoCargas();
+    void listadoCargasDeposito();
+    void listadoCargasPendientes();
+
 
 
 private:

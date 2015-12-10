@@ -123,7 +123,7 @@
    <item row="6" column="1">
     <widget class="QComboBox" name="tipo_negocio">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="minimumSize">
       <size>
@@ -197,7 +197,7 @@
    <item row="4" column="1">
     <widget class="QComboBox" name="moneda">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="maximumSize">
       <size>
@@ -235,7 +235,7 @@
    <item row="5" column="1">
     <widget class="QDateEdit" name="fecha_venta">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="maximumSize">
       <size>
@@ -251,7 +251,7 @@
    <item row="0" column="1">
     <widget class="QComboBox" name="cliente">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="minimumSize">
       <size>
@@ -276,7 +276,7 @@
    <item row="1" column="1">
     <widget class="QComboBox" name="grano">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="minimumSize">
       <size>
@@ -298,7 +298,7 @@
    <item row="2" column="1">
     <widget class="QLineEdit" name="kilos">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="maximumSize">
       <size>
@@ -360,7 +360,7 @@
    <item row="3" column="1">
     <widget class="QLineEdit" name="precio_base">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="maximumSize">
       <size>
@@ -409,6 +409,19 @@
    </item>
    <item row="13" column="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>80</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QPushButton" name="pushButton">
        <property name="styleSheet">
@@ -488,6 +501,26 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cliente</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>grano</tabstop>
+  <tabstop>kilos</tabstop>
+  <tabstop>precio_base</tabstop>
+  <tabstop>moneda</tabstop>
+  <tabstop>fecha_venta</tabstop>
+  <tabstop>tipo_negocio</tabstop>
+  <tabstop>observaciones</tabstop>
+  <tabstop>localizacion</tabstop>
+  <tabstop>fecha_pago</tabstop>
+  <tabstop>fecha_conc_compra</tabstop>
+  <tabstop>precio_concretado</tabstop>
+  <tabstop>kilos_concretados</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>id</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -4,7 +4,12 @@
 #include "agregarcliente.h"
 #include "listadoclientes.h"
 #include "compras.h"
+#include "agregarcarga.h"
+#include "filtrocargas.h"
+#include "cargasdeposito.h"
+#include "cargaspendientes.h"
 #include <QMessageBox>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +25,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionVentas , SIGNAL (triggered()), this, SLOT(showVentas()));
     connect (ui->actionNuevoCliente , SIGNAL (triggered()), this, SLOT(nuevoCliente()));
     connect (ui->actionListado_clientes , SIGNAL (triggered()), this, SLOT(listadoClientes()));
+    connect (ui->actionNuega_Carga , SIGNAL (triggered()), this, SLOT(nuevaCarga()));
+    connect (ui->actionListado_Cargas , SIGNAL (triggered()), this, SLOT(listadoCargas()));
+    connect (ui->actionEn_deposito , SIGNAL (triggered()), this, SLOT(listadoCargasDeposito()));
+    connect (ui->actionPendientes , SIGNAL (triggered()), this, SLOT(listadoCargasPendientes()));
 }
 
 MainWindow::~MainWindow()
@@ -54,4 +63,29 @@ void MainWindow::listadoClientes()
     ListadoClientes *clientes = new ListadoClientes(0);
     clientes->show();
 
+}
+
+void MainWindow::nuevaCarga()
+{
+    AgregarCarga *carga = new AgregarCarga();
+    carga->exec();
+}
+
+void MainWindow::listadoCargas(){
+
+    filtroCargas *cargas = new filtroCargas();
+    cargas->exec();
+
+}
+
+void MainWindow::listadoCargasDeposito()
+{
+    CargasDeposito *cargas = new CargasDeposito();
+    cargas->exec();
+}
+
+void MainWindow::listadoCargasPendientes()
+{
+    CargasPendientes *cargas = new CargasPendientes();
+    cargas->exec();
 }

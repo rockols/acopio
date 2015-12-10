@@ -25,7 +25,6 @@ void DetalleCompraVenta::showDetalles(int idCompra,int idVenta)
     query.bindValue(":id",idCompra);
     query.exec();
     query.next();
-    ui->tipo_negocio->setCurrentIndex(query.value(6).toInt()-1);
     ui->fecha_venta->setDate(query.value(3).toDate());
     ui->id->setText(query.value(0).toString());
     ui->fecha_pago->setDate(query.value(5).toDate());
@@ -76,7 +75,7 @@ void DetalleCompraVenta::populateLocalizacionField()
 {
     ui->localizacion->clear();
     QSqlQuery query;
-    query.prepare("SELECT _id, lugar FROM localizacion WHERE _id = 1 OR cliente = :cliente");
+    query.prepare("SELECT id, lugar FROM localizacion WHERE _id = 1 OR cliente = :cliente");
     query.bindValue(":cliente",ui->cliente->itemData(ui->cliente->currentIndex()).toLongLong());
     query.exec();
 

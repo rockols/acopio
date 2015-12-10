@@ -419,6 +419,20 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>nombre</tabstop>
+  <tabstop>apellido</tabstop>
+  <tabstop>cuit0</tabstop>
+  <tabstop>cuit</tabstop>
+  <tabstop>cuit1</tabstop>
+  <tabstop>direccion</tabstop>
+  <tabstop>localidad</tabstop>
+  <tabstop>provincia</tabstop>
+  <tabstop>telefono</tabstop>
+  <tabstop>mail</tabstop>
+  <tabstop>aceptar</tabstop>
+  <tabstop>cancelar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>496</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEditar">
@@ -89,9 +89,20 @@
     <addaction name="separator"/>
     <addaction name="actionNuevo_Anticipo"/>
    </widget>
+   <widget class="QMenu" name="menuCargas">
+    <property name="title">
+     <string>Cargas</string>
+    </property>
+    <addaction name="actionNuega_Carga"/>
+    <addaction name="separator"/>
+    <addaction name="actionListado_Cargas"/>
+    <addaction name="actionEn_deposito"/>
+    <addaction name="actionPendientes"/>
+   </widget>
    <addaction name="menuVer"/>
    <addaction name="menuEditar"/>
    <addaction name="menuAnticipos"/>
+   <addaction name="menuCargas"/>
   </widget>
   <action name="actionAnticipos">
    <property name="text">
@@ -183,6 +194,26 @@
   <action name="actionNuevo_tipo_de_grano">
    <property name="text">
     <string>Listado de granos</string>
+   </property>
+  </action>
+  <action name="actionNuega_Carga">
+   <property name="text">
+    <string>Añadir nueva carga</string>
+   </property>
+  </action>
+  <action name="actionListado_Cargas">
+   <property name="text">
+    <string>Listado Cargas</string>
+   </property>
+  </action>
+  <action name="actionEn_deposito">
+   <property name="text">
+    <string>En depósito</string>
+   </property>
+  </action>
+  <action name="actionPendientes">
+   <property name="text">
+    <string>Pendientes</string>
    </property>
   </action>
  </widget>

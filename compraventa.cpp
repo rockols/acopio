@@ -13,7 +13,7 @@ CompraVenta::CompraVenta(int id_compra, QWidget *parent) :
     ui(new Ui::CompraVenta)
 {
     ui->setupUi(this);
-
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     ui->ventasList->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->ventasList->setSelectionBehavior(QTableView::SelectRows);
     ui->ventasList->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -55,7 +55,7 @@ void CompraVenta::showVentas(){
     filtroNegocio = "tiponegocio = " + tipoNegocio;
     filtroMoneda = "moneda = '" + moneda + "'";
 
-    where = filtroCereal + " AND " + filtroNegocio + " AND " + filtroMoneda + "AND kilos > kiloscalzados";
+    where = filtroCereal + " AND " + filtroNegocio + " AND " + filtroMoneda + " AND kilos > kiloscalzados";
 
     model->setTable("ventas");
     model->setRelation(7, QSqlRelation("comprador", "cuit", "nombre"));
@@ -63,6 +63,7 @@ void CompraVenta::showVentas(){
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     model->setFilter(where);
+    qDebug() << idCompra;
     qDebug() << moneda;
     qDebug() << model->filter();
 
@@ -82,7 +83,7 @@ void CompraVenta::vincularCompraVenta()
     detalle->exec();
 }
 
-void CompraVenta::on_ventasList_clicked(const QModelIndex &index)
+void CompraVenta::on_ventasList_clicked()
 {
     ui->vincular->setEnabled(true);
 }
@@ -121,4 +122,9 @@ void CompraVenta::on_nueva_venta_clicked()
         detalle->exec();
     }
 
+}
+
+void CompraVenta::on_pushButton_clicked()
+{
+    this->close();
 }
